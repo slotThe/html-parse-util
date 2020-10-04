@@ -176,7 +176,7 @@ infixl 9 ~==
 -- | Performs an inexact match, the first item should be the thing to
 -- match.
 (~==) :: Token -> Token -> Bool
-(~==) a b = f a b
+(~==) = f
  where
   f (ContentText y) (ContentText x) = T.null x             || x == y
   f (TagClose    y) (TagClose    x) = T.null x             || x == y
