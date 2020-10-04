@@ -19,7 +19,6 @@ build-type:     Simple
 
 library
   exposed-modules:
-      Lib
       Text.HTML.Parser.Utils
   other-modules:
       Paths_html_parse_utils
