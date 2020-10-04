@@ -1,0 +1,34 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: dba667ea1970fb4ef2970697b52497510f6337751d3dd47a30cc5764db019243
+
+name:           html-parse-utils
+version:        0.1.0.0
+synopsis:       Utility functions for working with html-parse
+homepage:       https://gitlab.com/slotThe/html-parse-utils
+author:         Neil Mitchell (TagSoup), Tony Zorman (port to html-parse)
+maintainer:     Tony Zorman <soliditsallgood@mailbox.org>
+copyright:      2020  Tony Zorman
+license:        AGPL-3
+license-file:   LICENSE
+build-type:     Simple
+
+library
+  exposed-modules:
+      Lib
+      Text.HTML.Parser.Utils
+  other-modules:
+      Paths_html_parse_utils
+  hs-source-dirs:
+      lib
+  default-extensions: OverloadedStrings LambdaCase
+  ghc-options: -O2 -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -Widentities -Wmissing-local-signatures -Wmissing-export-lists -Wmissed-specialisations
+  build-depends:
+      base >=4.7 && <5
+    , html-parse >=0.2.0.2 && <0.3
+    , text >=1.2 && <1.3
+  default-language: Haskell2010

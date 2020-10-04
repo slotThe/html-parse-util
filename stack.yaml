@@ -1,0 +1,7 @@
+resolver: lts-16.16
+
+packages:
+  - .
+
+extra-deps:
+  - html-parse-0.2.0.2@sha256:268c6c3a723aae77ff799bf501d60a91e60536facab3ae70df7a74cea75e29c3,3898
