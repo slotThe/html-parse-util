@@ -1,6 +1,10 @@
 module Text.HTML.Parser.Utils
-    ( -- * Tag identification
-      isTagOpen          -- :: Token -> Bool
+    ( -- * Conversion
+      toToken            -- :: Text -> Token
+    , toTokenDefault     -- :: Token -> Text -> Token
+
+      -- * Tag identification
+    , isTagOpen          -- :: Token -> Bool
     , isTagClose         -- :: Token -> Bool
     , isTagSelfClose     -- :: Token -> Bool
     , isContentText      -- :: Token -> Bool
@@ -31,9 +35,11 @@ module Text.HTML.Parser.Utils
     , (~/=)              -- :: Token -> Token -> Bool
     ) where
 
-import qualified Data.List.NonEmpty as NE
-import qualified Data.Text          as T
+import qualified Data.Attoparsec.Text as A
+import qualified Data.List.NonEmpty   as NE
+import qualified Data.Text            as T
 
+import Data.Either (fromRight)
 import Data.List (groupBy, tails)
 import Data.Maybe (fromMaybe, mapMaybe)
 import Data.Text (Text)
@@ -43,6 +49,14 @@ import Text.HTML.Parser (
   token,
  )
 
+
+-- | Like 'toTokenDefault', but with a supplied default value.
+toToken :: Text -> Token
+toToken = toTokenDefault (Doctype "Could not parse string into token.")
+
+-- | Convert 'Text' to 'Token', with a default in case of a parse failure.
+toTokenDefault :: Token -> Text -> Token
+toTokenDefault d = fromRight d . A.parseOnly token
 
 -- | This function takes a list, and returns all suffixes whose first item
 -- matches the predicate.
@@ -184,10 +198,10 @@ infixl 9 ~==
   f (TagOpen  y ys) (TagOpen  x xs) = (T.null x || x == y) && all g xs
    where
     g :: Attr -> Bool
-    g = \case
-      Attr name val | T.null name -> val  `elem` map (\(Attr o _) -> o) ys
-                    | T.null val  -> name `elem` map (\(Attr _ t) -> t) ys
-      nameval      -> nameval `elem` ys
+    g nv@(Attr name val)
+      | T.null name = val  `elem` map (\(Attr o _) -> o) ys
+      | T.null val  = name `elem` map (\(Attr _ t) -> t) ys
+      | otherwise   = nv   `elem` ys
   f _ _ = False
 
 infixl 9 ~/=
