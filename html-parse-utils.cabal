@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.6.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: dba667ea1970fb4ef2970697b52497510f6337751d3dd47a30cc5764db019243
+-- hash: 238738c3ff40b1499fcf21b059acece48ebd553a330afb3e99ec934c275a2cc8
 
 name:           html-parse-utils
 version:        0.1.0.0
@@ -27,9 +27,9 @@ library
   default-extensions:
       OverloadedStrings
       LambdaCase
-  ghc-options: -Weverything -Wno-implicit-prelude -Wno-missing-import-lists -Wno-unused-packages -Wno-missing-safe-haskell-mode -Wno-all-missed-specialisations -Wno-unsafe -O2
+  ghc-options: -Weverything -Wno-implicit-prelude -Wno-missing-import-lists -Wno-unused-packages -Wno-missing-safe-haskell-mode -Wno-all-missed-specialisations -Wno-unsafe -Wno-prepositive-qualified-module -O2
   build-depends:
-      attoparsec ==0.13.*
+      attoparsec >=0.13 && <0.15
     , base >=4.7 && <5
     , html-parse >=0.2.0.2 && <0.3
     , text ==1.2.*
