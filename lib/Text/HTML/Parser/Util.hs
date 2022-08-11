@@ -1,4 +1,4 @@
-module Text.HTML.Parser.Utils
+module Text.HTML.Parser.Util
     ( -- * Conversion
       toToken            -- :: Text -> Token
     , toTokenDefault     -- :: Token -> Text -> Token
@@ -43,11 +43,7 @@ import Data.Either (fromRight)
 import Data.List (groupBy, tails)
 import Data.Maybe (fromMaybe, mapMaybe)
 import Data.Text (Text)
-import Text.HTML.Parser (
-  Attr (Attr),
-  Token (Comment, ContentChar, ContentText, Doctype, TagClose, TagOpen, TagSelfClose),
-  token,
- )
+import Text.HTML.Parser (Attr (Attr), Token (Comment, ContentChar, ContentText, Doctype, TagClose, TagOpen, TagSelfClose), token)
 
 
 -- | Like 'toTokenDefault', but with a supplied default value.

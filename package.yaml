@@ -1,11 +1,11 @@
-name:                html-parse-utils
-version:             0.1.0.0
+name:                html-parse-util
+version:             0.2.0
 homepage:            https://gitlab.com/slotThe/html-parse-utils
 synopsis:            Utility functions for working with html-parse
 license:             AGPL-3
 author:              Neil Mitchell (TagSoup), Tony Zorman (port to html-parse)
 maintainer:          Tony Zorman <soliditsallgood@mailbox.org>
-copyright:           2020  Tony Zorman
+copyright:           2020–2022  Tony Zorman
 
 default-extensions:
   - OverloadedStrings

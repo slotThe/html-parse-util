@@ -3,25 +3,23 @@ cabal-version: 1.12
 -- This file has been generated from package.yaml by hpack version 0.34.6.
 --
 -- see: https://github.com/sol/hpack
---
--- hash: 238738c3ff40b1499fcf21b059acece48ebd553a330afb3e99ec934c275a2cc8
 
-name:           html-parse-utils
-version:        0.1.0.0
+name:           html-parse-util
+version:        0.2.0
 synopsis:       Utility functions for working with html-parse
 homepage:       https://gitlab.com/slotThe/html-parse-utils
 author:         Neil Mitchell (TagSoup), Tony Zorman (port to html-parse)
 maintainer:     Tony Zorman <soliditsallgood@mailbox.org>
-copyright:      2020  Tony Zorman
+copyright:      2020–2022  Tony Zorman
 license:        AGPL-3
 license-file:   LICENSE
 build-type:     Simple
 
 library
   exposed-modules:
-      Text.HTML.Parser.Utils
+      Text.HTML.Parser.Util
   other-modules:
-      Paths_html_parse_utils
+      Paths_html_parse_util
   hs-source-dirs:
       lib
   default-extensions:
