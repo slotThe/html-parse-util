@@ -7,13 +7,23 @@ cabal-version: 1.12
 name:           html-parse-util
 version:        0.2.0
 synopsis:       Utility functions for working with html-parse
+description:    See README.md <https://gitlab.com/slotThe/html-parse-utils/-/blob/master/README.md here>
+category:       Text, XML
 homepage:       https://gitlab.com/slotThe/html-parse-utils
+bug-reports:    https://github.com/slotThe/html-parse-util/issues
 author:         Neil Mitchell (TagSoup), Tony Zorman (port to html-parse)
 maintainer:     Tony Zorman <soliditsallgood@mailbox.org>
-copyright:      2020–2022  Tony Zorman
+copyright:      2006–2019  Neil Mitchell 2020–2022  Tony Zorman
 license:        AGPL-3
 license-file:   LICENSE
 build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/slotThe/html-parse-util
 
 library
   exposed-modules:
@@ -25,7 +35,7 @@ library
   default-extensions:
       OverloadedStrings
       LambdaCase
-  ghc-options: -Weverything -Wno-implicit-prelude -Wno-missing-import-lists -Wno-unused-packages -Wno-missing-safe-haskell-mode -Wno-all-missed-specialisations -Wno-unsafe -Wno-prepositive-qualified-module -O2
+  ghc-options: -Weverything -Wno-implicit-prelude -Wno-missing-import-lists -Wno-unused-packages -Wno-missing-safe-haskell-mode -Wno-all-missed-specialisations -Wno-unsafe -Wno-prepositive-qualified-module
   build-depends:
       attoparsec >=0.13 && <0.15
     , base >=4.7 && <5

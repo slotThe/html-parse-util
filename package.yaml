@@ -1,11 +1,19 @@
 name:                html-parse-util
 version:             0.2.0
 homepage:            https://gitlab.com/slotThe/html-parse-utils
+github:              slotThe/html-parse-util
 synopsis:            Utility functions for working with html-parse
+description:         See README.md <https://gitlab.com/slotThe/html-parse-utils/-/blob/master/README.md here>
+category:            Text, XML
 license:             AGPL-3
 author:              Neil Mitchell (TagSoup), Tony Zorman (port to html-parse)
 maintainer:          Tony Zorman <soliditsallgood@mailbox.org>
-copyright:           2020–2022  Tony Zorman
+copyright:           2006–2019  Neil Mitchell
+                     2020–2022  Tony Zorman
+
+extra-source-files:
+  - README.md
+  - CHANGELOG.md
 
 default-extensions:
   - OverloadedStrings
@@ -20,7 +28,6 @@ ghc-options:
   -Wno-all-missed-specialisations
   -Wno-unsafe
   -Wno-prepositive-qualified-module
-  -O2
 
 dependencies:
   - base       >= 4.7     && < 5
