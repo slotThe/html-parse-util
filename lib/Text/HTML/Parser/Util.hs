@@ -1,3 +1,17 @@
+{- |
+   Module      : Text.HTML.Parser.Util
+   Description : Utility functions for the html-parse library
+   Copyright   : (c) Neil Mitchell  2006–2019 (TagSoup),
+                     Tony Zorman    2020–2022 (port to html-parse)
+   License     : BSD-3
+   Maintainer  : Tony Zorman <soliditsallgood@mailbox.org>
+   Stability   : experimental
+   Portability : non-portable
+
+Utility functions to make working with @html-parse@ as easy as working
+with TagSoup!  Most functions are one-to-one replacements for their
+respective TagSoup analogues and work the same way.
+-}
 module Text.HTML.Parser.Util
     ( -- * Conversion
       toToken            -- :: Text -> Token
