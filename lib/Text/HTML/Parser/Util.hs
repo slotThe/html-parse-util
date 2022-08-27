@@ -61,6 +61,9 @@ import Text.HTML.Parser (Attr (Attr), Token (Comment, ContentChar, ContentText, 
 
 
 -- | Like 'toTokenDefault', but with a supplied default value.
+--
+-- >>> toToken "text"
+-- ContentText "text"
 toToken :: Text -> Token
 toToken = toTokenDefault (Doctype "Could not parse string into token.")
 
@@ -70,11 +73,17 @@ toTokenDefault d = fromRight d . A.parseOnly token
 
 -- | This function takes a list, and returns all suffixes whose first item
 -- matches the predicate.
+--
+-- >>> sections (== 'c') "abc cba ccb"
+-- ["c cba ccb","cba ccb","ccb","cb"]
 sections :: (a -> Bool) -> [a] -> [[a]]
 sections p = filter (p . head) . init . tails
 
 -- | Like 'sections', but return the head element.  Returns an empty list if no
 -- head element is present.
+--
+-- >>> section (== 'c') "abc cba ccb"
+-- "c cba ccb"
 section :: (a -> Bool) -> [a] -> [a]
 section f = \case
   [] -> []
@@ -82,6 +91,9 @@ section f = \case
 
 -- | This function is similar to 'sections', but splits the list so no element
 -- appears in any two partitions.
+--
+-- >>> partitions (== 'c') "abc cba ccb"
+-- ["c ","cba ","c","cb"]
 partitions :: (a -> Bool) -> [a] -> [[a]]
 partitions p = groupBy (const notp) . dropWhile notp
  where notp = not . p
@@ -179,17 +191,16 @@ isTagCloseName :: Text -> Token -> Bool
 isTagCloseName name (TagClose n) = n == name
 isTagCloseName _    _            = False
 
--- | Extract an attribute, crashes if not a 'TagOpen'.  Returns @Attr \"\" \"\"@
+-- | Extract an attribute; crashes if not a 'TagOpen'.  Returns @Attr \"\" \"\"@
 -- if no attribute present.
 --
 -- Warning: does not distinguish between missing attribute and present
 -- attribute with values @\"\"@.
---
 fromAttrib :: Attr -> Token -> Attr
 fromAttrib att tag = fromMaybe (Attr "" "") $ maybeAttrib att tag
 
--- | Extract an attribute, crashes if not a 'TagOpen'.  Returns
--- @Nothing@ if no attribute present.
+-- | Extract an attribute; crashes if not a 'TagOpen'.  Returns
+-- 'Nothing' if no attribute present.
 maybeAttrib :: Attr -> Token -> Maybe Attr
 maybeAttrib att (TagOpen _ atts)
   | att `elem` atts = Just att
@@ -199,6 +210,12 @@ maybeAttrib _ t = error ("(" ++ show t ++ ") is not a TagOpen")
 infixl 9 ~==
 -- | Performs an inexact match, the first item should be the thing to
 -- match.
+--
+-- >>> ContentText "test" ~== ContentText ""
+-- True
+--
+-- >>> TagOpen "div" [Attr "class" "division ", Attr "id" "dd"] ~== TagOpen "div" [Attr "class" "division "]
+-- True
 (~==) :: Token -> Token -> Bool
 (~==) = f
  where
