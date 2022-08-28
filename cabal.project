@@ -1,0 +1,7 @@
+with-compiler: ghc-9.0.2
+packages: ./html-parse-util.cabal
+
+source-repository-package
+  type: git
+  location: https://github.com/bgamari/html-parse
+  tag: 52fa100da5d4d20ad3497b4a09a31b71528a10fb

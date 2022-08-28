@@ -7,7 +7,7 @@ cabal-version: 1.12
 -- hash: 4509b87ce78b0d31cd8627a9f17a0d7e344fa10333c6ce49efc2dedc47d264d3
 
 name:           html-parse-util
-version:        0.2.0
+version:        0.2.1
 synopsis:       Utility functions for working with html-parse
 description:    See README.md <https://gitlab.com/slotThe/html-parse-utils/-/blob/master/README.md here>
 category:       Text, XML
