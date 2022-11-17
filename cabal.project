@@ -1,4 +1,4 @@
-with-compiler: ghc-9.0.2
+with-compiler: ghc-9.2.5
 packages: ./html-parse-util.cabal
 
 source-repository-package

@@ -1,5 +1,5 @@
 name:                html-parse-util
-version:             0.2.0
+version:             0.2.2
 github:              slotThe/html-parse-util
 synopsis:            Utility functions for working with html-parse
 description:         See README.md <https://gitlab.com/slotThe/html-parse-utils/-/blob/master/README.md here>

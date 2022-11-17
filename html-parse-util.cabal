@@ -1,13 +1,13 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.6.
+-- This file has been generated from package.yaml by hpack version 0.35.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 4509b87ce78b0d31cd8627a9f17a0d7e344fa10333c6ce49efc2dedc47d264d3
+-- hash: 6937a28329ab72af97038e8b5e7e0651efe4fd25da51896fa9dc525c4e3f636c
 
 name:           html-parse-util
-version:        0.2.1
+version:        0.2.2
 synopsis:       Utility functions for working with html-parse
 description:    See README.md <https://gitlab.com/slotThe/html-parse-utils/-/blob/master/README.md here>
 category:       Text, XML
